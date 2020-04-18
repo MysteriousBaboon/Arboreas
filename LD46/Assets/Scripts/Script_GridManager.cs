@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Script_GridManager : MonoBehaviour
 {
-    private static int rows = 10; // Number of row for Tiles Generation
-    private static int cols = 10; // Number of Columns
+    private static int rows = 3; // Number of row for Tiles Generation
+    private static int cols = 3; // Number of Columns
     private float tileSize = 1; // Distance between each tiles
     public Object[] tiles_Type; // Array of all type of tiles
     public static GameObject[,] tiles = new GameObject[rows, cols]; // Array of all tiles
@@ -25,6 +25,7 @@ public class Script_GridManager : MonoBehaviour
             {
                 GameObject referenceTile = (GameObject)Instantiate(tiles_Type[Random.Range(0, tiles_Type.Length)]); // Randomizing the type of tile that will be generetad next
                 GenerateTile(referenceTile, col, row); // Function generation 1 tile, taking the type , and the position
+                Destroy(referenceTile);
             }
         }
 
@@ -35,6 +36,7 @@ public class Script_GridManager : MonoBehaviour
         GameObject tile = (GameObject)Instantiate(referenceTile, transform);
 
         tiles[col, row] = tile;
+        Debug.Log(Random.Range(0, tiles.Length));
 
         float posX = col * tileSize;
         float posY = row * -tileSize;
