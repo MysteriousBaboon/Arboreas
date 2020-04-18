@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Script_GridManager : MonoBehaviour
 {
-    private int rows = 5; // Number of row for Tiles Generation
-    private int cols = 5; // Number of Columns
+    private static int rows = 10; // Number of row for Tiles Generation
+    private static int cols = 10; // Number of Columns
     private float tileSize = 1; // Distance between each tiles
     public Object[] tiles_Type; // Array of all type of tiles
+    public static GameObject[,] tiles = new GameObject[rows, cols]; // Array of all tiles
+
 
     void Start()
     {
         GenerateTerrain(); // Generate all the tiles
         GenerateForest(); // Generate the first forest
     }
-
-
 
     private void GenerateTerrain()
     {
@@ -30,10 +30,11 @@ public class Script_GridManager : MonoBehaviour
 
     }
 
-    private void GenerateTile(GameObject referenceTile,int col, int row)
+    private void GenerateTile(GameObject referenceTile, int col, int row)
     {
         GameObject tile = (GameObject)Instantiate(referenceTile, transform);
-        
+
+        tiles[col, row] = tile;
 
         float posX = col * tileSize;
         float posY = row * -tileSize;
@@ -45,11 +46,12 @@ public class Script_GridManager : MonoBehaviour
         Script.posX = col; // Give it the X and Y Pos 
         Script.posY = row * -tileSize;
 
-
     }
 
     private void GenerateForest()
     {
               
     }
+
+
 }
