@@ -27,5 +27,4 @@ public class Script_UI : MonoBehaviour
         AudioListener.volume = sliderValue / 100;
     }
 
-
 }
