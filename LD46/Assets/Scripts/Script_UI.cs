@@ -2,15 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 
 public class Script_UI : MonoBehaviour
 {
-    public string LevelName;
+    public string levelName;
+    public Text volume;
 
     public void GotoScene()
     {
-        SceneManager.LoadScene(LevelName);
+        SceneManager.LoadScene(levelName);
     }
+
+    void Update ()
+    {
+    }
+
+    public void VolumeSlider(float sliderValue)
+    {
+        volume.text = sliderValue.ToString();
+        AudioListener.volume = sliderValue / 100;
+    }
+
 
 }
