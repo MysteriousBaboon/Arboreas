@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Script_GridManager : MonoBehaviour
 {
-    private static int rows = 3; // Number of row for Tiles Generation
-    private static int cols = 3; // Number of Columns
+    private static int rows = 9; // Number of row for Tiles Generation
+    private static int cols = 9; // Number of Columns
     private float tileSize = 1; // Distance between each tiles
+    private GameObject first_Forest;
     public Object[] tiles_Type; // Array of all type of tiles
     public static GameObject[,] tiles = new GameObject[rows, cols]; // Array of all tiles
 
@@ -28,6 +29,9 @@ public class Script_GridManager : MonoBehaviour
                 Destroy(referenceTile);
             }
         }
+        first_Forest = tiles[Random.Range(0,rows),Random.Range(0,cols)];
+        Script_Tile script_Generate = first_Forest.GetComponent<Script_Tile>();
+        script_Generate.GenerateForest();
 
     }
 
@@ -36,7 +40,6 @@ public class Script_GridManager : MonoBehaviour
         GameObject tile = (GameObject)Instantiate(referenceTile, transform);
 
         tiles[col, row] = tile;
-        Debug.Log(Random.Range(0, tiles.Length));
 
         float posX = col * tileSize;
         float posY = row * -tileSize;
@@ -44,9 +47,9 @@ public class Script_GridManager : MonoBehaviour
         tile.transform.position = new Vector2(posX, posY);
 
 
-        Script_Tile Script = tile.GetComponent<Script_Tile>(); // Get the script of the newly generated tile 
-        Script.posX = col; // Give it the X and Y Pos 
-        Script.posY = row * -tileSize;
+        Script_Tile script = tile.GetComponent<Script_Tile>(); // Get the script of the newly generated tile 
+        script.posX = col; // Give it the X and Y Pos 
+        script.posY = row * -tileSize;
 
     }
 

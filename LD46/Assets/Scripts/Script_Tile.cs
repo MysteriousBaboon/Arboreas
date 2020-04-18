@@ -55,9 +55,17 @@ public class Script_Tile : MonoBehaviour
 
     public void GenerateForest()
     {
-
         GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform);
         Tree.transform.position = new Vector2(posX, posY);
+        tree = true;
+        isPlanting = true;
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f);
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            Script_Tile other_Script = hitColliders[i].gameObject.GetComponent<Script_Tile>();
+            other_Script.isPlanting = true;
+        }
+
     }
 
     public void GenerateTree()
