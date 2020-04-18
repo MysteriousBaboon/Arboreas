@@ -16,8 +16,9 @@ public class Script_UI : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
-    void Update ()
+    public void ExitGame()
     {
+        Application.Quit();
     }
 
     public void VolumeSlider(float sliderValue)
