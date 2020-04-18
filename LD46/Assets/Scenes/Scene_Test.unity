@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiles_Type:
-  - {fileID: 1256770884303461256, guid: 1571e411d35e25a46a54610265315d94, type: 3}
+  - {fileID: 2780989111681095031, guid: 56b7080ad9f9af14990563cce39e38d7, type: 3}
   - {fileID: 5734310821230834004, guid: e62de32c5cc69c24394455995d27796b, type: 3}
 --- !u!4 &948657854
 Transform:
@@ -161,7 +161,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948657852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.971026, y: 16.807695, z: -22.9}
+  m_LocalPosition: {x: -7, y: 17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

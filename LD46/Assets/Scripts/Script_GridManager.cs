@@ -8,7 +8,6 @@ public class Script_GridManager : MonoBehaviour
     private int cols = 5; // Number of Columns
     private float tileSize = 1; // Distance between each tiles
     public Object[] tiles_Type; // Array of all type of tiles
-    private List<GameObject> tiles_List = new List<GameObject>(); // List of all tiles generated
 
     void Start()
     {
