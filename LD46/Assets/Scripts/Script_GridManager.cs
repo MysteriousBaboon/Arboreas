@@ -3,9 +3,9 @@
 public class Script_GridManager : MonoBehaviour
 {
     [SerializeField]
-    private static int rows = 20; // Number of row for Tiles Generation
+    private static int rows = 5; // Number of row for Tiles Generation
     [SerializeField]
-    private static int cols = 20; // Number of Columns
+    private static int cols = 5; // Number of Columns
     private float tileSize = 1; // Distance between each tiles
 
     private GameObject first_Forest;

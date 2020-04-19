@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class Script_Tree : MonoBehaviour
 {
     public string state = "Alive";
     public Sprite[] spriteList;
-    //  private SpriteRenderer spriteRenderer;
     public Button button;
 
     public int spriteIndex;
@@ -15,13 +13,11 @@ public class Script_Tree : MonoBehaviour
 
     private float elapsedTime;
     public float timeLimit = 2f;
-    public float percentageOfGrow = 0.2f;
     public float percentageOfResist = 0.8f;
 
     void Start()
     {
         button = GetComponent<Button>();
-       // spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -29,55 +25,60 @@ public class Script_Tree : MonoBehaviour
         if (infectionStage != 0)
         {
             DetermineSpriteIndex();
-            Contaminate();
-        }
-
-        if (infectionStage > 0 && state == "Alive")
-        {
-            elapsedTime += Time.deltaTime;
-            if(elapsedTime > timeLimit && infectionStage < 6)
-            {
-                elapsedTime = 0;
-                infectionStage++;
-            }
         }
 
     }
+
+ 
 
     public void DetermineSpriteIndex()
     {
-        spriteIndex = infectionStage;
+        if(infectionStage == -1)
+        {
+            spriteIndex = 6;
+        }
+        else
+        {
+            spriteIndex = infectionStage;
+        }
         button.GetComponent<Image>().sprite = spriteList[spriteIndex];
-       // spriteRenderer.sprite = spriteList[spriteIndex];
+
     }
 
-    public void Contaminate()
-    {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f);
-        for (int i = 0; i < hitColliders.Length; i++)
-        {
-            if (hitColliders[i].tag == "Tree")
-            {
-                Script_Tree other_Script = hitColliders[i].gameObject.GetComponent<Script_Tree>();
-                other_Script.Resist();
-            }
-        }
-    }
 
     public void Resist()
     {
-        Debug.Log("f");
-        float a = Random.Range(0f, 1f); // Generate a random float between 0/1
+        Debug.Log("After");
 
-        if (a > percentageOfResist) // If the value is superior to the percentage it doesn't resist the disease
+        if (Random.Range(0f, 1f) > percentageOfResist) // If the value is superior to the percentage it doesn't resist the disease
         {
-
-            if (infectionStage == 0)
+            if (infectionStage == 6)
             {
-                infectionStage = 1;
+                infectionStage = -1;
             }
+            if (infectionStage != -1)
+            {
+                Debug.Log(infectionStage);
+                infectionStage += 1;
+            }
+
         }
     }
 
+    public void HealOrCut(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            Debug.Log("Left click");
+        }
+        else if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            Debug.Log("Right click");
+        }
+    }
+    public void patate(PointerEventData eventData)
+    {
 
+    }
 }
+

@@ -75,7 +75,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 1
+  m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!114 &5167409280510660828
 MonoBehaviour:
@@ -119,7 +119,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4617411288428247377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806737024518007376}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1806737024518007376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: Alive
   spriteList:
-  - {fileID: 21300000, guid: 81ec1a9756e8cf84eb54d0dbbb908a8b, type: 3}
+  - {fileID: 21300000, guid: d0e131a09e1baf64fa5267345fa8b788, type: 3}
   - {fileID: 21300000, guid: 83b4fc78ca63f6443aff78d6687af99f, type: 3}
   - {fileID: 21300000, guid: 546b8b8c8636a814e938537c37b97210, type: 3}
   - {fileID: 21300000, guid: 8efd41f8f471da04090414c455788dc0, type: 3}
@@ -145,8 +156,7 @@ MonoBehaviour:
   spriteIndex: 0
   infectionStage: 0
   timeLimit: 2
-  percentageOfGrow: 0.5
-  percentageOfResist: 0.8
+  percentageOfResist: 0
 --- !u!54 &-5005936838218997579
 Rigidbody:
   m_ObjectHideFlags: 0

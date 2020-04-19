@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Script_Tile : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class Script_Tile : MonoBehaviour
     public GameObject goTree; // Does is he have a tree?
 
     public float elapsedTime;
-    public float timeLimit = 10f;
+    public float timeLimit;
     public float percentageOfGrow = 0.5f;
 
 
@@ -17,24 +15,45 @@ public class Script_Tile : MonoBehaviour
     {
         if (goTree != null) // Check if the tile has a tree 
         {
-            elapsedTime += Time.deltaTime;
+                elapsedTime += Time.deltaTime;
 
-            if (elapsedTime > timeLimit) // Check the time
-            {
-                elapsedTime = 0;
-                Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f); //get every tile in range of the main tile
-                for (int i = 0; i < hitColliders.Length; i++) // For every tile in range
+                if (elapsedTime > timeLimit) // Check the time
                 {
-                    if (hitColliders[i].tag == "Ground")
+                    elapsedTime = 0;
+
+                    Script_Tree goTree_Script = goTree.GetComponent<Script_Tree>();
+
+                    Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f); //get every tile in range of the main tile
+
+                    for (int i = 0; i < hitColliders.Length; i++) // For every tile in range
                     {
-                        Script_Tile other_Script = hitColliders[i].gameObject.GetComponent<Script_Tile>();// Get the Script
-                        if (other_Script.goTree == null) // Check that it has no tree
+
+                        if (goTree_Script.state == "Alive")
                         {
-                            other_Script.GenerateTree(false);
+                            if (hitColliders[i].tag == "Ground") // Check for grow
+                            {
+                                Script_Tile other_Script = hitColliders[i].gameObject.GetComponent<Script_Tile>();// Get the Script
+                                if (other_Script.goTree == null) // Check that it has no tree
+                                {
+                                    other_Script.GenerateTree(false);
+                                }
+                            }
+                        }
+
+
+
+                        if (goTree_Script.infectionStage > 0)
+                        {
+                            if (hitColliders[i].tag == "Tree")
+                            {
+                                Script_Tree other_Script = hitColliders[i].gameObject.GetComponent<Script_Tree>();// Get the Script
+                                if (other_Script.infectionStage >= 0) // Check that it has no tree
+                                {
+                                    other_Script.Resist();
+                                }
+                            }
                         }
                     }
-
-                }
             }
         }
     }
@@ -44,7 +63,6 @@ public class Script_Tile : MonoBehaviour
         GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // Load a tree to the correct position
         Tree.transform.position = new Vector2(posX + 1f, posY + 1f);
         goTree = Tree;
-                                                                     //  goTree.GetComponent<SpriteRenderer>().sortingOrder = Mathf.Abs(Mathf.RoundToInt(posY));
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f);
         for (int i = 0; i < hitColliders.Length; i++)
@@ -60,13 +78,11 @@ public class Script_Tile : MonoBehaviour
     {
         if (over == false) // Make it random
         {
-            float a = Random.Range(0f, 1f); // Generate a random float between 0/1
-            if (a < percentageOfGrow) // If the value is superior to the percentage it don't grow
+            if (Random.Range(0f, 1f) < percentageOfGrow) // If the value is superior to the percentage it don't grow
             {
                 GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // load a tree to the correct position
                 Tree.transform.position = new Vector2(posX + 1f, posY + 1f);
                 goTree = Tree;
-                                                                           //   goTree.GetComponent<SpriteRenderer>().sortingOrder = Mathf.Abs(Mathf.RoundToInt(posY));
             }
         }
 
@@ -75,7 +91,6 @@ public class Script_Tile : MonoBehaviour
             GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // load a tree to the correct position
             Tree.transform.position = new Vector2(posX + 1f, posY + 1f);
             goTree = Tree;
-                                                                             //goTree.GetComponent<SpriteRenderer>().sortingOrder = Mathf.Abs(Mathf.RoundToInt(posY));
         }
     }
 
