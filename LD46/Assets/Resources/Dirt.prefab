@@ -100,7 +100,7 @@ MonoBehaviour:
   posY: 0
   goTree: {fileID: 0}
   elapsedTime: 0
-  timeLimit: 1
+  timeLimit: 4
   percentageOfGrow: 0.2
 --- !u!54 &-4994404105712748169
 Rigidbody:

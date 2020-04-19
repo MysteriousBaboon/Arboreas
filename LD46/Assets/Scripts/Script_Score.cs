@@ -18,7 +18,7 @@ public class Script_Score : MonoBehaviour
     {
         GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
         treeValue = trees.Length;
-        tree.text = "Number of trees: " + treeValue;
+        tree.text = "Trees: " + treeValue;
     }
 }
 
