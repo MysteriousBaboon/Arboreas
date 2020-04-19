@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Script_GridManager : MonoBehaviour
 {
+    [SerializeField]
     private static int rows = 20; // Number of row for Tiles Generation
+    [SerializeField]
     private static int cols = 20; // Number of Columns
     private float tileSize = 1; // Distance between each tiles
+
     private GameObject first_Forest;
     public Object[] tiles_Type; // Array of all type of tiles
     public static GameObject[,] tiles = new GameObject[rows, cols]; // Array of all tiles
