@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Script_Tile : MonoBehaviour
 {
-    public float posX;
+    public float posX; // Position X and Y of the Tile owner
     public float posY;
-    public bool tree = false;
-    public bool isPlanting = false;
+    public string treeState = "None"; // Does is he have a tree?
+    public bool isPlanting = false; // is he actually planting?
 
     public float elapsedTime;
     public float timeLimit = 10f;
@@ -16,62 +16,62 @@ public class Script_Tile : MonoBehaviour
 
     void Update()
     {
-
-        if (isPlanting == true) // Check if the tree should be planting a tree
+        if (treeState == "Alive") // Check if the tile has a tree alive 
         {
-            if (tree == false)
-            {
-                GenerateTree();
-                Debug.Log(transform.position);
-                tree = true;
-            }
-            else
-            {
-                elapsedTime += Time.deltaTime;
-                if (elapsedTime > timeLimit)
-                {
-                    Debug.Log(timeLimit);
-                    elapsedTime = 0;
+            elapsedTime += Time.deltaTime;
 
-                    Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f);
-                    for (int i = 0; i < hitColliders.Length; i++)
+            if (elapsedTime > timeLimit) // Check the time
+            {
+                elapsedTime = 0;
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f); //get every tile in range of the main tile
+                for (int i = 0; i < hitColliders.Length; i++) // For every tile in range
+                {
+                    Script_Tile other_Script = hitColliders[i].gameObject.GetComponent<Script_Tile>();// Get the Script
+                    if (other_Script.treeState == "None") // Check that it has no tree
                     {
-                        float a = Random.Range(0f, 1f);
-                        if (a < percentageOfGrow)
-                        {
-                            Debug.Log(a);
-                            Script_Tile other_Script = hitColliders[i].gameObject.GetComponent<Script_Tile>();
-                            other_Script.isPlanting = true;
-                        }
+                        other_Script.GenerateTree(false);
                     }
 
                 }
             }
         }
-
-
-  
     }
 
-    public void GenerateForest()
+    public void GenerateForest() // todo Overlapsphere don't find any , fix this bug to make the beginning spawn a forest
     {
-        GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform);
+        GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // Load a tree to the correct position
         Tree.transform.position = new Vector2(posX, posY);
-        tree = true;
-        isPlanting = true;
+        treeState = "Alive";
+
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f);
         for (int i = 0; i < hitColliders.Length; i++)
         {
+
             Script_Tile other_Script = hitColliders[i].gameObject.GetComponent<Script_Tile>();
-            other_Script.isPlanting = true;
+            other_Script.GenerateTree(true);
         }
 
     }
 
-    public void GenerateTree()
+    public void GenerateTree(bool over)
     {
-        GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform);
-        Tree.transform.position = new Vector2(posX, posY);
+        if (over == false) // Make it random
+        {
+            float a = Random.Range(0f, 1f); // Generate a random float between 0/1
+            if (a < percentageOfGrow) // If the value is superior to the percentage it don't grow
+            {
+                GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // load a tree to the correct position
+                Tree.transform.position = new Vector2(posX, posY);
+                treeState = "Alive";
+            }
+        }
+
+        if (over == true) // Override the randomness
+        {
+            GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // load a tree to the correct position
+            Tree.transform.position = new Vector2(posX, posY);
+            treeState = "Alive";
+        }
     }
 
 
