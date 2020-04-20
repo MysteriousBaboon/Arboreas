@@ -12,7 +12,7 @@ public class Script_Tile : MonoBehaviour
     public float percentageOfGrow = 0.5f;
 
     private SpriteRenderer spriteR;
-
+    private bool forest = false;
 
     void Start()
     {
@@ -25,12 +25,15 @@ public class Script_Tile : MonoBehaviour
     {
         if (goTree != null) // Check if the tile has a tree 
         {
+            if(forest == true)
+            {
+                GenerateForest();
+            }
                 elapsedTime += Time.deltaTime;
 
                 if (elapsedTime > timeLimit) // Check the time
                 {
                     elapsedTime = 0;
-
                     Script_Tree goTree_Script = goTree.GetComponent<Script_Tree>();
 
                     Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f); //get every tile in range of the main tile
@@ -68,18 +71,20 @@ public class Script_Tile : MonoBehaviour
         }
     }
 
-    public void GenerateForest() // todo Overlapsphere don't find any , fix this bug to make the beginning spawn a forest
+    public void GenerateForest() 
     {
+        forest = true;
         GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // Load a tree to the correct position
         Tree.transform.position = new Vector2(posX + 1f, posY + 1f);
         goTree = Tree;
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1.5f);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
         for (int i = 0; i < hitColliders.Length; i++)
         {
-
             Script_Tile other_Script = hitColliders[i].gameObject.GetComponent<Script_Tile>();
+
             other_Script.GenerateTree(true);
+            forest = false;
         }
 
     }

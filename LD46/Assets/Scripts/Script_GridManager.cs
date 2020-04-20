@@ -16,6 +16,9 @@ public class Script_GridManager : MonoBehaviour
     void Start()
     {
         GenerateTerrain(); // Generate all the tiles
+        first_Forest = tiles[Random.Range(0, rows), Random.Range(0, cols)];
+        Script_Tile script_Generate = first_Forest.GetComponent<Script_Tile>();
+        script_Generate.GenerateForest();// Generate the first forest
     }
 
     private void GenerateTerrain()
@@ -29,10 +32,6 @@ public class Script_GridManager : MonoBehaviour
                 Destroy(referenceTile);
             }
         }
-        first_Forest = tiles[Random.Range(0,rows),Random.Range(0,cols)];
-        Script_Tile script_Generate = first_Forest.GetComponent<Script_Tile>();
-        script_Generate.GenerateForest();// Generate the first forest
-
     }
 
     private void GenerateTile(GameObject referenceTile, int col, int row)

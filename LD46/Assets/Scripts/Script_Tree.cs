@@ -24,6 +24,8 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         button = GetComponent<Button>();
+        button.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.5f;
+
     }
 
     void Update()
@@ -79,18 +81,8 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    public void Cut()
-    {
-        infectionStage = -1;
-        button.GetComponent<Image>().sprite = spriteList[spriteList.Length -1];
-        state = "Dead";
-        button.interactable = false;
-    }
 
-    public void Heal()
-    {
-        infectionStage = 0;
-    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -100,5 +92,20 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
             Heal();
     }
 
+    public void Heal()
+    {
+        if (state == "Alive")
+        {
+            infectionStage = 0;
+        }
+    }
+
+    public void Cut()
+    {
+        infectionStage = -1;
+        button.GetComponent<Image>().sprite = spriteList[spriteList.Length - 1];
+        state = "Dead";
+        button.interactable = false;
+    }
 }
 
