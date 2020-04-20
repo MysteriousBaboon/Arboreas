@@ -102,7 +102,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 636fccd62ab37c342b8ffba8069dcb47, type: 3}
   - {fileID: 21300000, guid: afb061982d3b1414f80b210b271161c8, type: 3}
   goTree: {fileID: 0}
-  timeLimit: 0.1
+  timeLimit: 1.98
   percentageOfGrow: 0.008
 --- !u!54 &-4994404105712748169
 Rigidbody:
