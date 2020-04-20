@@ -169,9 +169,9 @@ MonoBehaviour:
   spriteIndex: 0
   infectionStage: 0
   diseaseLimit: 0.3
-  percentageOfResist: 0.99
+  percentageOfResist: 1
   timeLimit: 0.1
-  chanceOfDiseaseAppearing: 0.001
+  chanceOfDiseaseAppearing: 0
   leftClick:
     m_PersistentCalls:
       m_Calls:
