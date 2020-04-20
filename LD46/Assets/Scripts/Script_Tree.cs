@@ -12,6 +12,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     public AudioSource audioData;
     public AudioClip[] sound;
+
     public int spriteIndex;
     public int infectionStage = 0;
 
@@ -21,7 +22,6 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     public float percentageOfResist = 0.8f;
     public float chanceOfDiseaseAppearing = 0f;
     private bool hasHeal = false;
-    private float elapsedCD;
 
 
     public UnityEvent leftClick;
@@ -37,7 +37,6 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     void Update()
     {
-        elapsedCD += Time.deltaTime;
         if (infectionStage == 0)
         {
             elapsedTime += Time.deltaTime;
@@ -47,6 +46,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
                 {
                     infectionStage++;
                 }
+                elapsedTime = 0;
             }
         }
 
@@ -56,7 +56,13 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
             if (elapsedTime >= diseaseLimit)
             {
                     infectionStage++;
+                elapsedTime = 0;
             }
+        }
+        if (infectionStage == spriteList.Length -1)
+        {
+            infectionStage = -1;
+            state = "Dead";
         }
         DetermineSpriteIndex();
 
@@ -69,7 +75,6 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
         if(infectionStage == -1)
         {
             spriteIndex = spriteList.Length - 1;
-            state = "Dead";
         }
         if(infectionStage != -1 && infectionStage != -2)
         {
@@ -87,15 +92,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     {
         if (Random.Range(0f, 1f) > percentageOfResist) // If the value is superior to the percentage it doesn't resist the disease
         {
-            if (infectionStage == spriteList.Length-1)
-            {
-                infectionStage = -1;
-            }
-            if (infectionStage < 0)
-            {
-                infectionStage += 1;
-            }
-
+            infectionStage = 1;
         }
     }
 
@@ -115,9 +112,8 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
             audioData.pitch = (Random.Range(0.4f, .9f));
             audioData.PlayOneShot(sound[1]);
 
-            // cd_Heal = max_Heal;
-            hasHeal = true;
             infectionStage = 0;
+            hasHeal = true;
         }
     }
 
@@ -125,8 +121,8 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     {
         audioData.pitch = (Random.Range(0.4f, .9f));
         audioData.PlayOneShot(sound[0]);
-
         audioData.PlayOneShot(sound[2]);
+
         infectionStage = -2;
         button.GetComponent<Image>().sprite = stump;
         state = "Dead";
