@@ -17,9 +17,10 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     public int infectionStage = 0;
 
     private float elapsedTime;
-    public float timeLimit = 2f;
+    
     public float diseaseLimit = 5f;
     public float percentageOfResist = 0.8f;
+    public float timeLimit = 2f;
     public float chanceOfDiseaseAppearing = 0f;
     private bool hasHeal = false;
 
@@ -119,14 +120,17 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     public void Cut()
     {
-        audioData.pitch = (Random.Range(0.4f, .9f));
-        audioData.PlayOneShot(sound[0]);
-        audioData.PlayOneShot(sound[2]);
+        if (state == "Alive")
+        {
+            audioData.pitch = (Random.Range(0.4f, .9f));
+            audioData.PlayOneShot(sound[0]);
+            audioData.PlayOneShot(sound[2]);
 
-        infectionStage = -2;
-        button.GetComponent<Image>().sprite = stump;
-        state = "Dead";
-        button.interactable = false;
+            infectionStage = -2;
+            button.GetComponent<Image>().sprite = stump;
+            state = "Dead";
+            button.interactable = false;
+        }
     }
 }
 

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2780989111681095031
+--- !u!1 &1465609969542434266
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2642675231395341257}
-  - component: {fileID: 4526085149704989243}
-  - component: {fileID: 8595640862931929586}
-  - component: {fileID: -4994404105712748169}
-  - component: {fileID: 1334102876488450745}
+  - component: {fileID: 1612923373781318500}
+  - component: {fileID: 864981583997973142}
+  - component: {fileID: 5010029799406686559}
+  - component: {fileID: 612108779904770522}
+  - component: {fileID: 2327592600100002324}
   m_Layer: 0
-  m_Name: Dirt
+  m_Name: Stone
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2642675231395341257
+--- !u!4 &1612923373781318500
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780989111681095031}
+  m_GameObject: {fileID: 1465609969542434266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.5, y: 16.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -34,13 +34,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4526085149704989243
+--- !u!212 &864981583997973142
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780989111681095031}
+  m_GameObject: {fileID: 1465609969542434266}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,13 +84,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8595640862931929586
+--- !u!114 &5010029799406686559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780989111681095031}
+  m_GameObject: {fileID: 1465609969542434266}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5a26d80011dbd547a512a1c21b95799, type: 3}
@@ -99,18 +99,18 @@ MonoBehaviour:
   posX: 0
   posY: 0
   spriteList:
-  - {fileID: 21300000, guid: 636fccd62ab37c342b8ffba8069dcb47, type: 3}
-  - {fileID: 21300000, guid: afb061982d3b1414f80b210b271161c8, type: 3}
+  - {fileID: 21300000, guid: 253b62a305412b1428222b3c4fa2bb7e, type: 3}
+  - {fileID: 21300000, guid: 4544affab774b9f428ffdcb4ab13d8f9, type: 3}
   goTree: {fileID: 0}
   timeLimit: 0.1
-  percentageOfGrow: 0.008
---- !u!54 &-4994404105712748169
+  percentageOfGrow: 0.0002
+--- !u!54 &612108779904770522
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780989111681095031}
+  m_GameObject: {fileID: 1465609969542434266}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -120,13 +120,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1334102876488450745
+--- !u!135 &2327592600100002324
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2780989111681095031}
+  m_GameObject: {fileID: 1465609969542434266}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
