@@ -51,7 +51,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     {
         if(infectionStage == -1)
         {
-            spriteIndex = 6;
+            spriteIndex = spriteList.Length - 1;
             state = "Dead";
         }
         else
@@ -67,7 +67,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     {
         if (Random.Range(0f, 1f) > percentageOfResist) // If the value is superior to the percentage it doesn't resist the disease
         {
-            if (infectionStage == 6)
+            if (infectionStage == spriteList.Length-1)
             {
                 infectionStage = -1;
             }
@@ -82,7 +82,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     public void Cut()
     {
         infectionStage = -1;
-        button.GetComponent<Image>().sprite = spriteList[6];
+        button.GetComponent<Image>().sprite = spriteList[spriteList.Length -1];
         state = "Dead";
         button.interactable = false;
     }

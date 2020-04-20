@@ -1,5 +1,86 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5613129710387002344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980108947420018347}
+  - component: {fileID: 6355061134071306043}
+  m_Layer: 0
+  m_Name: Tree_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1980108947420018347
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613129710387002344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -181.9974, y: -179.4142, z: -86.5373}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2754062532910179435}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &6355061134071306043
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613129710387002344}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: a962de9510dfb134b8fd998b768b3470, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2, y: 3}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &8545414166787774589
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +113,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1980108947420018347}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -67,7 +149,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d0e131a09e1baf64fa5267345fa8b788, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5f3fcd3030478e4ab850dc08bf4f12a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -145,13 +227,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: Alive
   spriteList:
-  - {fileID: 21300000, guid: d0e131a09e1baf64fa5267345fa8b788, type: 3}
-  - {fileID: 21300000, guid: 83b4fc78ca63f6443aff78d6687af99f, type: 3}
-  - {fileID: 21300000, guid: 546b8b8c8636a814e938537c37b97210, type: 3}
-  - {fileID: 21300000, guid: 8efd41f8f471da04090414c455788dc0, type: 3}
-  - {fileID: 21300000, guid: 405b3f283b52dc04285a2da9aba48b84, type: 3}
-  - {fileID: 21300000, guid: d5eb054845d7b2c4d899acfc7a792eb0, type: 3}
-  - {fileID: 21300000, guid: e87bb2aa2ef1ed944a6c97f955c31739, type: 3}
+  - {fileID: 21300000, guid: b5f3fcd3030478e4ab850dc08bf4f12a, type: 3}
+  - {fileID: 21300000, guid: 47a8f2a962937ac4c8a0b5f9f72a48a1, type: 3}
+  - {fileID: 21300000, guid: 24d5e90c4a3c2f841a75dfc3ffdd6a46, type: 3}
+  - {fileID: 21300000, guid: b612cfaa3b49d0a4db8c8eda95387a0f, type: 3}
+  - {fileID: 21300000, guid: 59dd68252ea8c9d47805147f58cd1469, type: 3}
+  - {fileID: 21300000, guid: 29bf6a5a4b24b84418148f3db4f7a4c4, type: 3}
+  - {fileID: 21300000, guid: 7c64d6ba3117c384ba36234787d0baa3, type: 3}
+  - {fileID: 21300000, guid: df495f1c909a5474bbd0dad35169c6aa, type: 3}
+  - {fileID: 21300000, guid: a748aca2947987644adf3e52bc1fa4da, type: 3}
+  - {fileID: 21300000, guid: fce76a0b03dc9e643bcc1721451e74f4, type: 3}
+  - {fileID: 21300000, guid: a962de9510dfb134b8fd998b768b3470, type: 3}
+  - {fileID: 21300000, guid: fc052ee54a007bc46b44b99e5be22e8f, type: 3}
   button: {fileID: 0}
   spriteIndex: 0
   infectionStage: 0
@@ -159,9 +246,6 @@ MonoBehaviour:
   percentageOfResist: 0
   chanceOfDiseaseAppearing: 0.9
   leftClick:
-    m_PersistentCalls:
-      m_Calls: []
-  middleClick:
     m_PersistentCalls:
       m_Calls: []
   rightClick:

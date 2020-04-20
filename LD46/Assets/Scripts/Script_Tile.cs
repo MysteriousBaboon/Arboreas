@@ -91,7 +91,7 @@ public class Script_Tile : MonoBehaviour
             if (Random.Range(0f, 1f) < percentageOfGrow) // If the value is superior to the percentage it don't grow
             {
                 GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // load a tree to the correct position
-                Tree.transform.position = new Vector2(posX + 1f, posY + 1f);
+                Tree.transform.position = new Vector2(posX, posY+1);
                 goTree = Tree;
             }
         }
