@@ -64,11 +64,12 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
                     infectionStage++;
                 }
             }
-            DetermineSpriteIndex();
         }
+        DetermineSpriteIndex();
+
     }
 
- 
+
 
     public void DetermineSpriteIndex()
     {
