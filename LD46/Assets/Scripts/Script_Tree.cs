@@ -62,10 +62,9 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
             elapsedTime += Time.deltaTime;
             if (elapsedTime >= timeLimit)
             {
-                if (Random.Range(0f, 1f) < chanceOfDiseaseAppearing)
-                {
+
                     infectionStage++;
-                }
+
             }
         }
         DetermineSpriteIndex();
