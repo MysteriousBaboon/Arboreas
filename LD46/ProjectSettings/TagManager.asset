@@ -15,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Cursor
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
     locked: 0
   - name: Trees
     uniqueID: 3714460349
+    locked: 0
+  - name: Cursor
+    uniqueID: 96654363
     locked: 0
