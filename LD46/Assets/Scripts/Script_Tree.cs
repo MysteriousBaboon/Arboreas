@@ -16,6 +16,9 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     public float timeLimit = 2f;
     public float percentageOfResist = 0.8f;
     public float chanceOfDiseaseAppearing = 0f;
+    private float cd_Heal = 0;
+    public float max_Heal = 5f;
+    private float elapsedCD;
 
 
     public UnityEvent leftClick;
@@ -30,6 +33,11 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     void Update()
     {
+        if(cd_Heal != 0)
+        {
+            cd_Heal -= Time.deltaTime;
+        }
+        elapsedCD += Time.deltaTime;
         if (infectionStage == 0)
         {
             elapsedTime += Time.deltaTime;
@@ -81,8 +89,6 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
         }
     }
 
-
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -94,8 +100,9 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     public void Heal()
     {
-        if (state == "Alive")
+        if (state == "Alive" && cd_Heal <= max)
         {
+            cd_Heal = max_Heal;
             infectionStage = 0;
         }
     }

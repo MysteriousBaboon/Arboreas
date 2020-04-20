@@ -74,9 +74,7 @@ public class Script_Tile : MonoBehaviour
     public void GenerateForest() 
     {
         forest = true;
-        GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // Load a tree to the correct position
-        Tree.transform.position = new Vector2(posX + 1f, posY + 1f);
-        goTree = Tree;
+        GenerateTree(true);
 
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
         for (int i = 0; i < hitColliders.Length; i++)
@@ -103,8 +101,9 @@ public class Script_Tile : MonoBehaviour
 
         if (over == true) // Override the randomness
         {
+            Debug.Log("P");
             GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // load a tree to the correct position
-            Tree.transform.position = new Vector2(posX + 1f, posY + 1f);
+            Tree.transform.position = new Vector2(posX, posY + 1f);
             goTree = Tree;
         }
     }
