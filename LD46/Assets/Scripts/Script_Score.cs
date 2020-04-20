@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Script_Score : MonoBehaviour
 {
@@ -10,19 +12,25 @@ public class Script_Score : MonoBehaviour
     private int globalScore;
     Text score;
 
+    public GameObject Patate;
     public float elapsedTime;
     public float timeLimit;
 
+    private bool gameIsOver = false;
+
     void Start()
     {
+
         score = GetComponent<Text>();
     }
+
+  
 
     // Update is called once per frame
     void Update()
     {
         elapsedTime += Time.deltaTime;
-        if (scoreType == "Tree")
+        if (scoreType == "Tree" && gameIsOver == false )
         {
             GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
             treeValue = trees.Length;
@@ -46,6 +54,39 @@ public class Script_Score : MonoBehaviour
             score.text = globalScore.ToString();
 
         }
+        LookForGameOver();
+    }
+
+    void LookForGameOver()
+    {
+       GameObject[] go = GameObject.FindGameObjectsWithTag("Tree");
+        for (int i = 0; i < go.Length; i++)
+        {
+            Script_Tree script_t = go[i].gameObject.GetComponent<Script_Tree>();// Get the Script
+
+            if (script_t.state == "Alive")
+                {
+                return;
+                }
+        }
+        GoToGameOver();
+
+    }
+
+    void GoToGameOver()
+    {
+        if (scoreType == "Score")
+        {
+            DontDestroyOnLoad(transform.root.gameObject);
+            SceneManager.LoadScene("Scene_GameOver");
+
+        }
+
+        if (scoreType == "Tree")
+        {
+            gameIsOver = true;
+        }
+
     }
 }
 

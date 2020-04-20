@@ -11,6 +11,7 @@ public class Script_GridManager : MonoBehaviour
     private GameObject first_Forest;
     public Object[] tiles_Type; // Array of all type of tiles
     public float[] tiles_Probability;
+
     public static GameObject[,] tiles = new GameObject[rows, cols]; // Array of all tiles
 
 

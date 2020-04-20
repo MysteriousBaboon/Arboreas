@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 278, y: -15.1}
+  m_AnchoredPosition: {x: 277.99997, y: -15.1}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &458386381
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreType: Tree
+  Patate: {fileID: 458386379}
   elapsedTime: 0
   timeLimit: 3
 --- !u!114 &458386382
@@ -17383,7 +17384,7 @@ Transform:
   m_Children:
   - {fileID: 565938526}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &948657852
 GameObject:
@@ -17471,7 +17472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 181.80002, y: -11}
+  m_AnchoredPosition: {x: 187, y: -12}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1353077622
@@ -17487,6 +17488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreType: Score
+  Patate: {fileID: 1353077620}
   elapsedTime: 0
   timeLimit: 3
 --- !u!114 &1353077623
@@ -17621,7 +17623,7 @@ RectTransform:
   m_Children:
   - {fileID: 948657854}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -17692,7 +17694,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1637767128
 GameObject:
@@ -17777,10 +17779,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: -6.97, z: -13.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 1771980913}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1637767132
 MonoBehaviour:
@@ -17955,7 +17956,7 @@ RectTransform:
   - {fileID: 458386380}
   - {fileID: 1838836656}
   - {fileID: 1353077621}
-  m_Father: {fileID: 1637767131}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -18035,7 +18036,7 @@ GameObject:
   - component: {fileID: 1838836658}
   - component: {fileID: 1838836657}
   m_Layer: 8
-  m_Name: Score
+  m_Name: Score 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
