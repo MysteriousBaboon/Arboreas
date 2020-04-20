@@ -102,8 +102,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 253b62a305412b1428222b3c4fa2bb7e, type: 3}
   - {fileID: 21300000, guid: 4544affab774b9f428ffdcb4ab13d8f9, type: 3}
   goTree: {fileID: 0}
-  timeLimit: 20.76
-  percentageOfGrow: 0.08
+  timeLimit: 0.1
+  percentageOfGrow: 0.0002
 --- !u!54 &612108779904770522
 Rigidbody:
   m_ObjectHideFlags: 0
