@@ -158,13 +158,13 @@ MonoBehaviour:
   - {fileID: 21300000, guid: fce76a0b03dc9e643bcc1721451e74f4, type: 3}
   - {fileID: 21300000, guid: a962de9510dfb134b8fd998b768b3470, type: 3}
   - {fileID: 21300000, guid: fc052ee54a007bc46b44b99e5be22e8f, type: 3}
+  stump: {fileID: 21300000, guid: 499621e0d02dd4946b5b3e740205322a, type: 3}
   button: {fileID: 0}
   spriteIndex: 0
   infectionStage: 0
   timeLimit: 0.5
-  percentageOfResist: 1
-  chanceOfDiseaseAppearing: 0.01
-  cd_Heal: 0
+  percentageOfResist: 0
+  chanceOfDiseaseAppearing: 0.001
   leftClick:
     m_PersistentCalls:
       m_Calls: []
