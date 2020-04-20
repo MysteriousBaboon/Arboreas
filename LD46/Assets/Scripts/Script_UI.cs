@@ -8,12 +8,16 @@ using UnityEngine.UI;
 
 public class Script_UI : MonoBehaviour
 {
+    //public AudioSource audioData;
+    //public AudioClip sound;
     public string levelName;
     public Text volume;
 
     public void GotoScene()
     {
+      //  audioData.PlayOneShot(sound);
         SceneManager.LoadScene(levelName);
+
     }
 
     public void ExitGame()
@@ -27,4 +31,9 @@ public class Script_UI : MonoBehaviour
         AudioListener.volume = sliderValue / 100;
     }
 
+    void Start()
+    {
+       // audioData = GetComponent<AudioSource>();
+
+    }
 }

@@ -10,6 +10,8 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     public Sprite stump;
     public Button button;
 
+    public AudioSource audioData;
+    public AudioClip[] sound;
     public int spriteIndex;
     public int infectionStage = 0;
 
@@ -29,6 +31,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     void Start()
     {
         button = GetComponent<Button>();
+        audioData = GetComponent<AudioSource>();
         button.GetComponent<Image>().alphaHitTestMinimumThreshold = 0.5f;
 
     }
@@ -119,6 +122,9 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     {
         if (state == "Alive" && hasHeal == false)
         {
+            audioData.pitch = (Random.Range(0.4f, .9f));
+            audioData.PlayOneShot(sound[1]);
+
             // cd_Heal = max_Heal;
             hasHeal = true;
             infectionStage = 0;
@@ -127,6 +133,10 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     public void Cut()
     {
+        audioData.pitch = (Random.Range(0.4f, .9f));
+        audioData.PlayOneShot(sound[0]);
+
+        audioData.PlayOneShot(sound[2]);
         infectionStage = -2;
         button.GetComponent<Image>().sprite = stump;
         state = "Dead";
