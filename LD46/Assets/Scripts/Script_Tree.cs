@@ -17,10 +17,9 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     private float elapsedTime;
     public float timeLimit = 2f;
+    public float diseaseLimit = 5f;
     public float percentageOfResist = 0.8f;
     public float chanceOfDiseaseAppearing = 0f;
-    //   private float cd_Heal = 0;
-    //   public float max_Heal = 5f;
     private bool hasHeal = false;
     private float elapsedCD;
 
@@ -38,12 +37,6 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     void Update()
     {
-        /*
-        if(cd_Heal != 0)
-        {
-            cd_Heal -= Time.deltaTime;
-        }
-        */
         elapsedCD += Time.deltaTime;
         if (infectionStage == 0)
         {
@@ -57,14 +50,12 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
             }
         }
 
-        if (infectionStage != 0)
+        if (infectionStage > 0)
         {
             elapsedTime += Time.deltaTime;
-            if (elapsedTime >= timeLimit)
+            if (elapsedTime >= diseaseLimit)
             {
-
                     infectionStage++;
-
             }
         }
         DetermineSpriteIndex();

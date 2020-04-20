@@ -7,7 +7,7 @@ public class Script_Tile : MonoBehaviour
     public Sprite[] spriteList;
     public GameObject goTree; // Does is he have a tree?
 
-    public float elapsedTime;
+    private float elapsedTime;
     public float timeLimit;
     public float percentageOfGrow = 0.5f;
 
