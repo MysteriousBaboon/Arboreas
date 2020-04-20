@@ -60,7 +60,7 @@ public class Script_Tile : MonoBehaviour
                             if (hitColliders[i].tag == "Tree")
                             {
                                 Script_Tree other_Script = hitColliders[i].gameObject.GetComponent<Script_Tree>();// Get the Script
-                                if (other_Script.infectionStage >= 0) // Check that it has no tree
+                                if (other_Script.infectionStage == 0) // Check that it has no tree
                                 {
                                     other_Script.Resist();
                                 }
@@ -76,15 +76,17 @@ public class Script_Tile : MonoBehaviour
         forest = true;
         GenerateTree(true);
 
+        /*
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
         for (int i = 0; i < hitColliders.Length; i++)
         {
+            Debug.Log(i);
             Script_Tile other_Script = hitColliders[i].gameObject.GetComponent<Script_Tile>();
 
-            other_Script.GenerateTree(true);
-            forest = false;
+            
         }
-
+        */
+        forest = false;
     }
 
     public void GenerateTree(bool over)
@@ -101,7 +103,6 @@ public class Script_Tile : MonoBehaviour
 
         if (over == true) // Override the randomness
         {
-            Debug.Log("P");
             GameObject Tree = (GameObject)Instantiate(Resources.Load("Tree"), transform); // load a tree to the correct position
             Tree.transform.position = new Vector2(posX, posY + 1f);
             goTree = Tree;

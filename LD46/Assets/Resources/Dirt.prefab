@@ -104,7 +104,7 @@ MonoBehaviour:
   goTree: {fileID: 0}
   elapsedTime: 0
   timeLimit: 0.1
-  percentageOfGrow: 0.0004
+  percentageOfGrow: 0.002
 --- !u!54 &-4994404105712748169
 Rigidbody:
   m_ObjectHideFlags: 0

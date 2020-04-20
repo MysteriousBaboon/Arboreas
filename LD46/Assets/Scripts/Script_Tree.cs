@@ -7,6 +7,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 {
     public string state = "Alive";
     public Sprite[] spriteList;
+    public Sprite stump;
     public Button button;
 
     public int spriteIndex;
@@ -16,8 +17,9 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
     public float timeLimit = 2f;
     public float percentageOfResist = 0.8f;
     public float chanceOfDiseaseAppearing = 0f;
-    private float cd_Heal = 0;
-    public float max_Heal = 5f;
+    //   private float cd_Heal = 0;
+    //   public float max_Heal = 5f;
+    private bool hasHeal = false;
     private float elapsedCD;
 
 
@@ -33,10 +35,12 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     void Update()
     {
+        /*
         if(cd_Heal != 0)
         {
             cd_Heal -= Time.deltaTime;
         }
+        */
         elapsedCD += Time.deltaTime;
         if (infectionStage == 0)
         {
@@ -49,8 +53,17 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
+
         if (infectionStage != 0)
         {
+            elapsedTime += Time.deltaTime;
+            if (elapsedTime >= timeLimit)
+            {
+                if (Random.Range(0f, 1f) < chanceOfDiseaseAppearing)
+                {
+                    infectionStage++;
+                }
+            }
             DetermineSpriteIndex();
         }
     }
@@ -64,11 +77,14 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
             spriteIndex = spriteList.Length - 1;
             state = "Dead";
         }
-        else
+        if(infectionStage != -1 && infectionStage != -2)
         {
             spriteIndex = infectionStage;
         }
-        button.GetComponent<Image>().sprite = spriteList[spriteIndex];
+        if (infectionStage != -2)
+        {
+            button.GetComponent<Image>().sprite = spriteList[spriteIndex];
+        }
 
     }
 
@@ -81,7 +97,7 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
             {
                 infectionStage = -1;
             }
-            if (infectionStage != -1)
+            if (infectionStage < 0)
             {
                 infectionStage += 1;
             }
@@ -100,17 +116,18 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
     public void Heal()
     {
-        if (state == "Alive" && cd_Heal <= max)
+        if (state == "Alive" && hasHeal == false)
         {
-            cd_Heal = max_Heal;
+            // cd_Heal = max_Heal;
+            hasHeal = true;
             infectionStage = 0;
         }
     }
 
     public void Cut()
     {
-        infectionStage = -1;
-        button.GetComponent<Image>().sprite = spriteList[spriteList.Length - 1];
+        infectionStage = -2;
+        button.GetComponent<Image>().sprite = stump;
         state = "Dead";
         button.interactable = false;
     }
