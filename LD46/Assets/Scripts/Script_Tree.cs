@@ -19,7 +19,6 @@ public class Script_Tree : MonoBehaviour, IPointerClickHandler
 
 
     public UnityEvent leftClick;
-    public UnityEvent middleClick;
     public UnityEvent rightClick;
 
     void Start()

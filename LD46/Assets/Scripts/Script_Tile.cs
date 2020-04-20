@@ -4,12 +4,22 @@ public class Script_Tile : MonoBehaviour
 {
     public float posX; // Position X and Y of the Tile owner
     public float posY;
+    public Sprite[] spriteList;
     public GameObject goTree; // Does is he have a tree?
 
     public float elapsedTime;
     public float timeLimit;
     public float percentageOfGrow = 0.5f;
 
+    private SpriteRenderer spriteR;
+
+
+    void Start()
+    {
+        int random = Random.Range(0, spriteList.Length);
+        spriteR = gameObject.GetComponent<SpriteRenderer>();
+        spriteR.sprite = spriteList[random];
+    }
 
     void Update()
     {

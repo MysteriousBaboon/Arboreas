@@ -98,6 +98,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   posX: 0
   posY: 0
+  spriteList:
+  - {fileID: 21300000, guid: 3185a4daf47b01c4ab9aa94a7d2a26e5, type: 3}
+  - {fileID: 21300000, guid: 264419de779a23b4c82160ee871a194c, type: 3}
   goTree: {fileID: 0}
   elapsedTime: 0
   timeLimit: 4
