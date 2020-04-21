@@ -168,8 +168,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 354dc2a931aa2844ea925f89b782523a, type: 3}
   spriteIndex: 0
   infectionStage: 0
-  diseaseLimit: 0.3
-  percentageOfResist: 0.99
+  diseaseLimit: 0.5
+  percentageOfResist: 0.995
   timeLimit: 0.1
   chanceOfDiseaseAppearing: 0.001
   leftClick:

@@ -17,6 +17,7 @@ public class Script_Score : MonoBehaviour
     public float timeLimit;
 
     private bool gameIsOver = false;
+    private bool alreadyMoved = false;
 
     void Start()
     {
@@ -54,7 +55,10 @@ public class Script_Score : MonoBehaviour
             score.text = globalScore.ToString();
 
         }
-        LookForGameOver();
+        if (alreadyMoved == false)
+        {
+            LookForGameOver();
+        }
     }
 
     void LookForGameOver()
@@ -75,6 +79,7 @@ public class Script_Score : MonoBehaviour
 
     void GoToGameOver()
     {
+        alreadyMoved = true;
         if (scoreType == "Score")
         {
             DontDestroyOnLoad(transform.root.gameObject);
